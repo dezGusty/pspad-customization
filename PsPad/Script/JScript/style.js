@@ -27,22 +27,20 @@ Changes:       customized styles to own liking; updated timings.
 var module_name = "Code Formatter for PSPad";
 var module_ver = "3.2.2";
 var module_desc = "Code Formatter for PSPad"
-var module_copyright = "Marcio (a.k.a. Marshall)\nOne Target - Simple Solutions";
+var module_copyright = "Marcio (a.k.a. Marshall)\nOne Target - Simple Solutions\n\ncontains modifications by Augustin Preda";
 
 var fs = new ActiveXObject("Scripting.FileSystemObject");
 var wsh = new ActiveXObject("WScript.Shell");
-var wsn = new ActiveXObject("WScript.Network");
 var menu_name = "AStyle";
 var editor = newEditor();
 
 function Init() {
-   addMenuItem("- About Artistic Style", menu_name, "AStyleInfo");
-   addMenuItem("- About Predefined Style Options", menu_name, "AboutPre");
-   addMenuItem("  gus", menu_name, "Agus", "CTRL+ALT+g");
-   addMenuItem("  java",  menu_name, "Ajava", "CTRL+ALT+j");
-   addMenuItem("  your own code",  menu_name, "Apersonal", "CTRL+ALT+p");
-   addMenuItem("- Edit this script", menu_name, "editMe");
-   addMenuItem("- About Code Formatter", menu_name, "About");
+   addMenuItem("gus-allman style", menu_name, "Agus", "CTRL+ALT+g");
+   addMenuItem("java style",  menu_name, "Ajava", "CTRL+ALT+j");
+   addMenuItem("your own code",  menu_name, "Apersonal", "CTRL+ALT+p");
+   addMenuItem("About Artistic Style", menu_name, "AStyleInfo");
+   addMenuItem("Edit this script", menu_name, "editMe");
+   addMenuItem("About Code Formatter", menu_name, "About");
    return;
 }
 
@@ -53,20 +51,6 @@ function editMe() {
 function About() {
    var VN = "--- Code Formatter Information ---\nModule: " + module_desc +
    "\nVersion: " + module_ver + "\n\nCreated by: " + module_copyright;
-   echo(VN);
-}
-
-function AboutPre() {
-   var VN = "ANSI: Brackets are broken, indentation is 4 spaces.\n" +
-   "           Namespaces, classes, and switches are NOT indented.\n" +
-   "GNU: Brackets are broken, blocks are indented, and indentation is 2 spaces.\n" +
-   "          Namespaces, classes, and switches are NOT indented.\n" +
-   "kr: Kernighan & Ritchie. Brackets are attached, indentation is 4 spaces.\n" +
-   "     Namespaces, classes, and switches are NOT indented.\n" +
-   "linux: All brackets are linux style, indentation is 8 spaces.\n" +
-   "          Namespaces, classes, and switches are NOT indented.\n" +
-   "java: Brackets are attached, indentation is 4 spaces.\n" +
-   "         Switches are NOT indented.";
    echo(VN);
 }
 
@@ -118,7 +102,7 @@ function Ajava(){
 }
 function Apersonal(){
    try {
-      var command = inputText("Please enter your code", "-A2t8CSKBGNLwFpU");
+      var command = inputText("Please enter your code", "--style=allman");
       if (command != null && command != "") {
          StyleCmd(command);
       }
