@@ -132,15 +132,41 @@ function AStyleInfo(){
         if (fs.FileExists(MyPath() + "\\Styler\\AStyle.exe")) {
           message += "\n\nAStyle is present at [" + MyPath() + "\\Styler\\AStyle.exe]\n\n";
           
-          command = MyPath() + "\\Styler\\AStyle.exe --version";
-          var oExec = wsh.Exec(command);
-          var stdOut = oExec.StdOut;
-          while ( ! stdOut.AtEndOfStream) {
-            message += stdOut.ReadLine().replace(/[\r\n]/g, '');
+          // Augustin Preda, 2017.04.25: 
+          // Using the Exec command has the unfortunate side-effect of a command prompt window appearing and dissappearing very quickly
+          // The Run command can be executed in a hidden mode, but does not support streaming.
+          // A possible compromise could be (as found here: https://www.computing.net/answers/programming/vbs-hide-exec/21488.html)
+          // to use 2 scripts
+          // 
+          // The trick is to use two scripts. The first script calls CSCRIPT.EXE to run the second script in a hidden console window.
+          // It's in this hidden second script you can do your work.
+          // Consider the following example:
+          // A.vbs
+          // 
+          // CreateObject("WScript.Shell").Run "cscript B.vbs", 0, True
+          // 
+          // B.vbs
+          // 
+          // Set i = CreateObject("WScript.Shell").Exec("cmd /c dir c:\ /a/s")
+          // CreateObject("Scripting.FileSystemObject").OpenTextFile( _
+          // "out.txt", 2, True).WriteLine i.StdOut.ReadAll
+          
+          if (true) {
+            // Exec mode.
+            command = MyPath() + "\\Styler\\AStyle.exe --version";
+            var oExec = wsh.Exec(command);
+            var stdOut = oExec.StdOut;
+            while ( ! stdOut.AtEndOfStream) {
+              message += stdOut.ReadLine().replace(/[\r\n]/g, '');
+            }
+            while (oExec.Status == 0) {
+              sleep(200);
+            }
+          } else {
+            // RUn mode.
+            // TODO: implement later...
           }
-          while (oExec.Status == 0) {
-            sleep(200);
-          }
+          
         }
         
         echo(message);
