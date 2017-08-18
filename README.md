@@ -2,8 +2,8 @@
 Customization files (syntax, colors, third party scripts) for PsPad
 
 ## Supported versions
-- 4.6.2
-- 5.0
+- 4.6.2 (32bit)
+- 5.0 (32bit)
 
 ## Package contents
 The pspad-customization project contains several items, using various licenses:
@@ -54,6 +54,21 @@ You may skip the general configuration files.
 For scripts, you may need to recompile them after you enter PsPad:
 - [Scripts] --> [Recompile scripts]
 
-Important!
-If there is no [Scripts] menu in PsPad, you need to go to :
+### Important! 
+:warning: If there is no [Scripts] menu in PsPad, you need to go to :
 [Settings] --> [System integration] --> enable [Integrated scripting support (WSH)]
+
+### Activating the wccoa syntax and color scheme
+Launch PsPad and go to [Settings] --> [Highlighter Settings...] 
+![Highlighter settings](https://dezgusty.github.io/pspad-customization/PsPad_Menu_Settings_Highlighters_Settings.png)
+
+Select one of the available Syntax slots (marked in bold writing).
+From the Specification tab, select the desired entry in "User Highlighters" (E.g. "wccoa").
+
+![Highlighter wccoa specification](https://dezgusty.github.io/pspad-customization/PsPad_Highlighters_Settings_wccoa.png)
+
+You can also customize the color, by using the Colors tab.
+![Highlighter wccoa color](https://dezgusty.github.io/pspad-customization/PsPad_Highlighters_Settings_color.png)
+
+### Usage
+Run AStyle reformatter in PsPad: [CTRL] + [ALT] + [G]
