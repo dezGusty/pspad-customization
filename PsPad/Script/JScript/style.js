@@ -95,7 +95,7 @@ function StyleCmd(tip){
 }
 
 function Agus(){
-   StyleCmd("--style=allman --indent=spaces=2 --align-reference=type --indent-col1-comments --break-blocks --pad-header --pad-oper --add-brackets --mode=c");
+   StyleCmd("--style=allman --indent=spaces=2 --align-reference=type --indent-col1-comments --break-blocks --pad-oper --pad-comma --pad-header --unpad-paren --add-braces --mode=c");
 }
 function Ajava(){
    StyleCmd("--style=java");
