@@ -60,15 +60,15 @@ For scripts, you may need to recompile them after you enter PsPad:
 
 ### Activating the wccoa syntax and color scheme
 Launch PsPad and go to [Settings] --> [Highlighter Settings...] 
-![Highlighter settings](https://dezgusty.github.io/pspad-customization/PsPad_Menu_Settings_Highlighters_Settings.png)
+![Highlighter settings](./docs/PsPad_Menu_Settings_Highlighters_Settings.png)
 
 Select one of the available Syntax slots (marked in bold writing).
 From the Specification tab, select the desired entry in "User Highlighters" (E.g. "wccoa").
 
-![Highlighter wccoa specification](https://dezgusty.github.io/pspad-customization/PsPad_Highlighters_Settings_wccoa.png)
+![Highlighter wccoa specification](./docs/PsPad_Highlighters_Settings_wccoa.png)
 
 You can also customize the color, by using the Colors tab.
-![Highlighter wccoa color](https://dezgusty.github.io/pspad-customization/PsPad_Highlighters_Settings_color.png)
+![Highlighter wccoa color](./docs/PsPad_Highlighters_Settings_color.png)
 
 ### Usage
 Run AStyle reformatter in PsPad: [CTRL] + [ALT] + [G]
